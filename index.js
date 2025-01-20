@@ -39,21 +39,21 @@ const addNewGoal = () => {
     const newGoal = document.createElement('li');
     newGoal.textContent = goalInput;
     goalList.appendChild(newGoal);
-;
 
     const allGoals = document.querySelectorAll('#goalList li');
 
-   allGoals.forEach((item) => {
-    if (goalInput !== " " && goalList.children.length > 0 && item.textContent === goalInput ){
-        alert("Fitness Goal has already been added");
-        item.remove();
-    }
-   });
+    allGoals.forEach((item) => {
+    
+        if (goalInput !== " " && goalList.children.length > 1 && item.textContent === goalInput ){
+            alert("Fitness Goal has already been added");
+            item.remove()
+        }
+
+
+    });
 
     
 };
-
-
 
 
 // Add event listener to the goal submit button
