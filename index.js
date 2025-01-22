@@ -36,18 +36,26 @@ const addNewGoal = () => {
     // The event listener that removes goals when clicked is not related to this issue.
     // Focus on preventing duplicates for now.
     
-    const newGoal = document.createElement('li');
+    /*const newGoal = document.createElement('li');
     newGoal.textContent = goalInput;
-    goalList.appendChild(newGoal);
+    goalList.appendChild(newGoal);*/
 
     const allGoals = document.querySelectorAll('#goalList li');
 
     allGoals.forEach((item) => {
     
         if (goalInput !== " " && goalList.children.length > 1 && item.textContent === goalInput ){
+            goalInput.value = "";
             alert("Fitness Goal has already been added");
-            item.remove()
-        }
+            item.remove();
+            return;
+
+        } else {
+        const newGoal = document.createElement('li');
+        newGoal.textContent = goalInput;
+        goalList.appendChild(newGoal); 
+        goalInput.value = "";
+               }
 
 
     });
